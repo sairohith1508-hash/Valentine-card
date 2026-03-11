@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Valentine Proposal 💌</title>
+<style>
+  body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    margin-top: 50px;
+  }
+  button {
+    font-size: 20px;
+    padding: 10px 20px;
+    margin: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+</style>
+</head>
+<body>
+<h1>Will you be my Valentine? ❤️</h1>
+<button id="yesBtn" onclick="alert('Yay! 💖 I knew it!')">Yes</button>
+<button id="noBtn">No</button>
+
+<script>
+  const noBtn = document.getElementById('noBtn');
+
+  noBtn.addEventListener('mouseover', () => {
+    // Move the button randomly
+    const x = Math.floor(Math.random() * 300) - 150;
+    const y = Math.floor(Math.random() * 200) - 100;
+    noBtn.style.transform = `translate(${x}px, ${y}px)`;
+  });
+</script>
+</body>
+</html>
+
