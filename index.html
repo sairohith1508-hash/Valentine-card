@@ -2,37 +2,84 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Valentine Proposal 💌</title>
+<title>Unblock Proposal 💌</title>
 <style>
   body {
+    background: #ffe6f0; /* soft pink */
     text-align: center;
-    font-family: Arial, sans-serif;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
     margin-top: 50px;
+    overflow: hidden;
   }
+
+  h1 {
+    color: #d6006c;
+    font-size: 36px;
+  }
+
   button {
-    font-size: 20px;
-    padding: 10px 20px;
+    font-size: 24px;
+    padding: 15px 30px;
     margin: 20px;
+    border: none;
+    border-radius: 12px;
     cursor: pointer;
     transition: all 0.3s;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  }
+
+  #yesBtn {
+    background-color: #ff69b4;
+    color: white;
+  }
+
+  #noBtn {
+    background-color: #fff;
+    color: #d6006c;
+    border: 2px solid #d6006c;
+  }
+
+  /* animated hearts */
+  .heart {
+    position: absolute;
+    font-size: 24px;
+    color: #ff4da6;
+    animation: floatUp 4s linear infinite;
+    opacity: 0.8;
+  }
+
+  @keyframes floatUp {
+    0% { transform: translateY(0) scale(1); opacity: 0.8; }
+    100% { transform: translateY(-600px) scale(1.5); opacity: 0; }
   }
 </style>
 </head>
 <body>
-<h1>Will you be my Valentine? ❤️</h1>
-<button id="yesBtn" onclick="alert('Yay! 💖 I knew it!')">Yes</button>
+<h1>Are you going to unblock me? 💖</h1>
+<button id="yesBtn" onclick="alert('Yay! Thanks for unblocking me! 🥳')">Yes</button>
 <button id="noBtn">No</button>
 
 <script>
   const noBtn = document.getElementById('noBtn');
 
+  // Make the No button dodge the cursor
   noBtn.addEventListener('mouseover', () => {
-    // Move the button randomly
-    const x = Math.floor(Math.random() * 300) - 150;
-    const y = Math.floor(Math.random() * 200) - 100;
+    const x = Math.floor(Math.random() * 400) - 200;
+    const y = Math.floor(Math.random() * 300) - 150;
     noBtn.style.transform = `translate(${x}px, ${y}px)`;
   });
+
+  // Random floating hearts
+  function createHeart() {
+    const heart = document.createElement('div');
+    heart.className = 'heart';
+    heart.style.left = Math.random() * window.innerWidth + 'px';
+    heart.textContent = '💖';
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 4000);
+  }
+
+  setInterval(createHeart, 500);
 </script>
 </body>
 </html>
-
