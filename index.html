@@ -39,8 +39,8 @@
     border: 2px solid #d6006c;
   }
 
-  /* animated hearts */
-  .heart {
+  /* animated unlock icons */
+  .icon {
     position: absolute;
     font-size: 24px;
     color: #ff4da6;
@@ -55,7 +55,7 @@
 </style>
 </head>
 <body>
-<h1>Are you going to unblock me? 💖</h1>
+<h1>Are you going to unblock me? 🔓</h1>
 <button id="yesBtn" onclick="alert('Yay! Thanks for unblocking me! 🥳')">Yes</button>
 <button id="noBtn">No</button>
 
@@ -69,17 +69,17 @@
     noBtn.style.transform = `translate(${x}px, ${y}px)`;
   });
 
-  // Random floating hearts
-  function createHeart() {
-    const heart = document.createElement('div');
-    heart.className = 'heart';
-    heart.style.left = Math.random() * window.innerWidth + 'px';
-    heart.textContent = '💖';
-    document.body.appendChild(heart);
-    setTimeout(() => heart.remove(), 4000);
+  // Random floating unlock icons
+  function createIcon() {
+    const icon = document.createElement('div');
+    icon.className = 'icon';
+    icon.style.left = Math.random() * window.innerWidth + 'px';
+    icon.textContent = '🔓'; // unlock icon
+    document.body.appendChild(icon);
+    setTimeout(() => icon.remove(), 4000);
   }
 
-  setInterval(createHeart, 500);
+  setInterval(createIcon, 500);
 </script>
 </body>
 </html>
